@@ -1,0 +1,21 @@
+name: examples
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+      - name: Build good (strict) and bad examples
+        run: make -C examples
+      - name: Run good examples
+        run: make -C examples run
+      - name: MISRA check of the good examples
+        run: make -C examples misra-good
+      - name: Slide links point at the right lines
+        run: python3 tools/relink.py --check
