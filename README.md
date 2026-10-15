@@ -1,5 +1,4 @@
 # MISRA C
-
 (created by Claude)
 
 A hands-on course on **MISRA C:2012** (with Amendments 1 and 2), the coding guidelines used for safety- and security-critical C in the automotive, aerospace, medical, rail and industrial industries.
